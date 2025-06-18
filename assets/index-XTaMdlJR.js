@@ -443,7 +443,7 @@ Error generating stack: `+n.message+`
   display: block;
   font-size: 1.5rem;
   line-height: 1;
-`,XE=()=>{const[i,a]=P.useState(!1);P.useEffect(()=>{const u=()=>{a(window.scrollY>300)};return window.addEventListener("scroll",u),()=>window.removeEventListener("scroll",u)},[]);const s=()=>{window.scrollTo({top:0,behavior:"smooth"})};return i?X.jsx(YE,{onClick:s,"aria-label":"Back to top",children:X.jsx(GE,{children:"↑"})}):null},kE="/Portfolio/assets/image-BbL17w08.JPG",ZE=$(ie.section)`
+`,XE=()=>{const[i,a]=P.useState(!1);P.useEffect(()=>{const u=()=>{a(window.scrollY>300)};return window.addEventListener("scroll",u),()=>window.removeEventListener("scroll",u)},[]);const s=()=>{window.scrollTo({top:0,behavior:"smooth"})};return i?X.jsx(YE,{onClick:s,"aria-label":"Back to top",children:X.jsx(GE,{children:"↑"})}):null},kE="/Portfolio/assets/image-BbL17w08.jpg",ZE=$(ie.section)`
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -203,7 +203,7 @@ function App() {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.97 }}
             >
-              🚀 Message Me
+              🚀 Hire Me
             </HireMeButton>
           </HeroText>
         </HeroContent>

@@ -7,6 +7,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import './App.css'
+import profileImg from './assets/Image.JPG'
 
 const Section = styled(motion.section)`
   min-height: 100vh;
@@ -63,8 +64,6 @@ const NavLinks = styled.div`
     }
   }
 `
-
-const profileImg = '/src/assets/Image.JPG'
 
 const HeroContent = styled.div`
   display: flex;

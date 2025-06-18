@@ -7,7 +7,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import './App.css'
-import profileImg from './assets/Image.JPG'
+// import profileImg from './assets/Image.JPG' // Removed due to missing module
 
 const Section = styled(motion.section)`
   min-height: 100vh;
@@ -180,7 +180,7 @@ function App() {
             transition={{ delay: 0.3, type: 'spring', stiffness: 120 }}
             whileHover={{ scale: 1.08, rotate: -2 }}
           >
-            <ProfileImg src={profileImg} alt="Vincent's profile" />
+            <ProfileImg src="src/assets/Image.JPG" alt="Vincent's profile" />
           </ProfileImgWrapper>
           <HeroText>
             <Title

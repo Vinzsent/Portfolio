@@ -293,7 +293,6 @@ const SocialIcon = styled.img`
   width: 24px;
   height: 24px;
   object-fit: contain;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 `
 
 const ContactInfoGrid = styled(motion.div)`
@@ -365,6 +364,20 @@ const socials = [
 
 const Contact = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 })
+
+  // Helper to get brand color filter
+  const getIconFilter = (name: string) => {
+    if (name === 'Facebook') {
+      // Facebook blue #1877F3
+      return 'invert(34%) sepia(99%) saturate(749%) hue-rotate(186deg) brightness(99%) contrast(101%)';
+    }
+    if (name === 'LinkedIn') {
+      // LinkedIn blue #0A66C2
+      return 'invert(27%) sepia(99%) saturate(749%) hue-rotate(181deg) brightness(95%) contrast(101%)';
+    }
+    // Default: green #00ff87
+    return 'invert(62%) sepia(98%) saturate(749%) hue-rotate(98deg) brightness(102%) contrast(101%)';
+  }
 
   return (
     <ContactSection
@@ -459,30 +472,41 @@ const Contact = () => {
         <SocialSection>
           <SocialText>Or reach me out on these social media sites:</SocialText>
           <SocialGrid>
-            {socials.map((social, i) => (
-              <SocialCard
-                key={social.name}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ 
-                  delay: 0.7 + i * 0.1,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 10
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  rotate: 1,
-                  transition: { duration: 0.2 }
-                }}
-              >
-                <SocialIcon src={social.icon} alt={social.name + ' icon'} />
-                {social.name}
-              </SocialCard>
-            ))}
+            {socials.map((social, i) => {
+              return (
+                <SocialCard
+                  key={social.name}
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                  transition={{ 
+                    delay: 0.7 + i * 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    rotate: 1,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  <SocialIcon
+                    src={social.icon}
+                    alt={social.name + ' icon'}
+                    style={{
+                      filter:
+                        social.name === 'Facebook' || social.name === 'LinkedIn'
+                          ? 'none'
+                          : 'invert(62%) sepia(98%) saturate(749%) hue-rotate(98deg) brightness(102%) contrast(101%)'
+                    }}
+                  />
+                  {social.name}
+                </SocialCard>
+              )
+            })}
           </SocialGrid>
         </SocialSection>
       </ContactContainer>

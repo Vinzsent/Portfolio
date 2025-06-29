@@ -365,20 +365,6 @@ const socials = [
 const Contact = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 })
 
-  // Helper to get brand color filter
-  const getIconFilter = (name: string) => {
-    if (name === 'Facebook') {
-      // Facebook blue #1877F3
-      return 'invert(34%) sepia(99%) saturate(749%) hue-rotate(186deg) brightness(99%) contrast(101%)';
-    }
-    if (name === 'LinkedIn') {
-      // LinkedIn blue #0A66C2
-      return 'invert(27%) sepia(99%) saturate(749%) hue-rotate(181deg) brightness(95%) contrast(101%)';
-    }
-    // Default: green #00ff87
-    return 'invert(62%) sepia(98%) saturate(749%) hue-rotate(98deg) brightness(102%) contrast(101%)';
-  }
-
   return (
     <ContactSection
       ref={ref}
@@ -496,12 +482,6 @@ const Contact = () => {
                   <SocialIcon
                     src={social.icon}
                     alt={social.name + ' icon'}
-                    style={{
-                      filter:
-                        social.name === 'Facebook' || social.name === 'LinkedIn'
-                          ? 'none'
-                          : 'invert(62%) sepia(98%) saturate(749%) hue-rotate(98deg) brightness(102%) contrast(101%)'
-                    }}
                   />
                   {social.name}
                 </SocialCard>
